@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAMEZONE - Inicio</title>
+
+<style>
+:root{
+    --fondo:#F0EEF7;
+    --navbar:#D9D3EA;
+    --tarjeta:#FAF8FF;
+    --texto:#191625;
+    --secundario:#625B72;
+    --violeta:#7057E8;
+    --rosa:#E9578F;
+    --naranja:#F4A340;
+    --azul:#4F8FE8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+}
+
+nav{
+    height:75px;
+    background:var(--navbar);
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    padding:0 7%;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:var(--texto);
+    justify-self:start;
+}
+
+.logo span{
+    color:var(--violeta);
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.menu a{
+    position:relative;
+    text-decoration:none;
+    color:var(--secundario);
+    font-size:15px;
+    font-weight:700;
+    padding:12px 18px;
+}
+
+.menu a:hover{
+    color:var(--violeta);
+}
+
+.menu a.activo{
+    color:var(--violeta);
+}
+
+.menu a.activo::after{
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:3px;
+    height:3px;
+    background:var(--violeta);
+    border-radius:5px;
+}
+
+.cuenta{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:12px;
+}
+
+.cuenta a{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+}
+
+.login{
+    color:var(--texto);
+}
+
+.registro{
+    background:var(--violeta);
+    color:white;
+    padding:10px 17px;
+    border-radius:8px;
+}
+
+main{
+    width:86%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.hero{
+    min-height:420px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    padding:55px 0;
+}
+
+.etiqueta{
+    display:inline-block;
+    color:var(--violeta);
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:var(--secundario);
+    font-size:17px;
+    line-height:1.7;
+    max-width:520px;
+    margin-bottom:28px;
+}
+
+.botones{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    text-decoration:none;
+    display:inline-block;
+    padding:13px 20px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.btn-principal{
+    background:var(--violeta);
+    color:white;
+}
+
+.btn-secundario{
+    background:white;
+    color:var(--texto);
+    border:1px solid #d5d0df;
+}
+
+.hero-img{
+    height:300px;
+    border-radius:18px;
+    background:url("img/cyberpunk.jpg") center/cover no-repeat;
+    background-color:#191625;
+}
+
+.seccion{
+    padding:45px 0;
+}
+
+.titulo-seccion{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.titulo-seccion h2{
+    font-size:28px;
+}
+
+.ver-todos{
+    text-decoration:none;
+    color:var(--violeta);
+    font-weight:700;
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:var(--tarjeta);
+    border-radius:15px;
+    overflow:hidden;
+    border:1px solid #ddd8e8;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.imagen{
+    height:180px;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color:#191625;
+}
+
+.imagen.cyberpunk{
+    background-size:115% auto;
+}
+
+.imagen.eldenring{
+    background-size:115% auto;
+}
+
+.card-info{
+    padding:18px;
+}
+
+.card-info h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.card-info p{
+    color:var(--secundario);
+    font-size:14px;
+}
+
+.etiqueta-juego{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 9px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.violeta{
+    background:#e5defd;
+    color:var(--violeta);
+}
+
+.rosa{
+    background:#fbdce8;
+    color:var(--rosa);
+}
+
+.naranja{
+    background:#ffebcd;
+    color:#c77a10;
+}
+
+.azul{
+    background:#dceafd;
+    color:#3775ca;
+}
+
+.lanzamientos{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.lanzamiento .imagen{
+    height:190px;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(20,15,30,.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
+}
+
+.modal.activo{
+    display:flex;
+}
+
+.modal-contenido{
+    width:90%;
+    max-width:800px;
+    background:var(--tarjeta);
+    border-radius:16px;
+    padding:22px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.cerrar{
+    border:none;
+    background:none;
+    font-size:30px;
+    cursor:pointer;
+    color:var(--texto);
+}
+
+.video{
+    height:320px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--violeta),var(--azul));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:60px;
+}
+
+@media(max-width:1000px){
+    .lanzamientos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:700px){
+    nav{
+        grid-template-columns:1fr;
+        height:auto;
+        gap:10px;
+        padding:18px;
+    }
+
+    .logo,
+    .cuenta{
+        justify-self:center;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+    }
+
+    .grid,
+    .lanzamientos{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">GAME<span>ZONE</span></div>
+
+    <div class="menu">
+        <a href="index.html" class="activo">Inicio</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="generos.html">Géneros</a>
+        <a href="noticias.html">Noticias</a>
+    </div>
+
+    <div class="cuenta">
+        <a href="login.html" class="login">Iniciar sesión</a>
+        <a href="login.html" class="registro">Registrarse</a>
+    </div>
+</nav>
+
+<main>
+
+<section class="hero">
+    <div>
+        <span class="etiqueta">PLATAFORMA DE DESCUBRIMIENTO GAMING</span>
+        <h1>DESCUBRE TU PRÓXIMA AVENTURA</h1>
+        <p>Explora nuevos mundos, descubre grandes historias y encuentra tu próximo juego favorito.</p>
+
+        <div class="botones">
+            <a href="juegos.html" class="btn btn-principal">DESCUBRIR JUEGOS</a>
+            <button class="btn btn-secundario" onclick="abrirTrailer()">VER TRAILER</button>
+        </div>
+    </div>
+
+    <div class="hero-img"></div>
+</section>
+
+<section class="seccion">
+    <div class="titulo-seccion">
+        <h2>JUEGOS DESTACADOS</h2>
+        <a href="juegos.html" class="ver-todos">Ver todos →</a>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="imagen cyberpunk" style="background-image:url('img/cyberpunk.jpg')"></div>
+            <div class="card-info">
+                <h3>Cyberpunk 2077</h3>
+                <p>RPG · Mundo abierto</p>
+                <span class="etiqueta-juego violeta">RPG</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="imagen eldenring" style="background-image:url('img/eldenring.jpg')"></div>
+            <div class="card-info">
+                <h3>Elden Ring</h3>
+                <p>RPG · Acción · Aventura</p>
+                <span class="etiqueta-juego rosa">ACCIÓN</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="imagen" style="background-image:url('img/minecraft.jpg')"></div>
+            <div class="card-info">
+                <h3>Minecraft</h3>
+                <p>Supervivencia · Mundo abierto</p>
+                <span class="etiqueta-juego naranja">SUPERVIVENCIA</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="titulo-seccion">
+        <h2>PRÓXIMOS LANZAMIENTOS</h2>
+    </div>
+
+    <div class="grid lanzamientos">
+
+        <div class="card lanzamiento">
+            <div class="imagen" style="background-image:url('img/gta6.jpg')"></div>
+            <div class="card-info">
+                <h3>GTA 6</h3>
+                <p>Acción · Mundo abierto</p>
+                <span class="etiqueta-juego violeta">PRÓXIMO</span>
+            </div>
+        </div>
+
+        <div class="card lanzamiento">
+            <div class="imagen" style="background-image:url('img/resident-evil-requiem.jpg')"></div>
+            <div class="card-info">
+                <h3>Resident Evil Requiem</h3>
+                <p>Horror · Acción</p>
+                <span class="etiqueta-juego rosa">PRÓXIMO</span>
+            </div>
+        </div>
+
+        <div class="card lanzamiento">
+            <div class="imagen" style="background-image:url('img/wolverine.jpg')"></div>
+            <div class="card-info">
+                <h3>Marvel's Wolverine</h3>
+                <p>Acción · Aventura</p>
+                <span class="etiqueta-juego azul">PRÓXIMO</span>
+            </div>
+        </div>
+
+        <div class="card lanzamiento">
+            <div class="imagen" style="background-image:url('img/007-first-light.jpg')"></div>
+            <div class="card-info">
+                <h3>007: First Light</h3>
+                <p>Acción · Aventura</p>
+                <span class="etiqueta-juego naranja">PRÓXIMO</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<div class="modal" id="modal">
+    <div class="modal-contenido">
+        <div class="modal-header">
+            <h2>Trailer — GAMEZONE</h2>
+            <button class="cerrar" onclick="cerrarTrailer()">×</button>
+        </div>
+
+        <div class="video">
+            ▶
+        </div>
+
+        <p style="margin-top:15px;color:var(--secundario);">
+            Espacio destinado al trailer del videojuego.
+        </p>
+    </div>
+</div>
+
+<script>
+function abrirTrailer(){
+    document.getElementById("modal").classList.add("activo");
+}
+
+function cerrarTrailer(){
+    document.getElementById("modal").classList.remove("activo");
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+    if(e.target===this){
+        cerrarTrailer();
+    }
+});
+
+document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"){
+        cerrarTrailer();
+    }
+});
+</script>
+
+</body>
+</html>
