@@ -6,16 +6,19 @@
 <title>GAMEZONE - Noticias</title>
 
 <style>
+
 :root{
-    --fondo:#F0EEF7;
-    --navbar:#D9D3EA;
-    --tarjeta:#FAF8FF;
-    --texto:#191625;
-    --secundario:#625B72;
-    --violeta:#7057E8;
-    --rosa:#E9578F;
-    --naranja:#F4A340;
-    --azul:#4F8FE8;
+    --fondo:#0F172A;
+    --navbar:#111827;
+    --tarjeta:#1E293B;
+    --texto:#F8FAFC;
+    --secundario:#94A3B8;
+
+    --violeta:#7C3AED;
+    --cyan:#06B6D4;
+    --rosa:#EC4899;
+
+    --borde:#334155;
 }
 
 *{
@@ -30,19 +33,30 @@ body{
     color:var(--texto);
 }
 
+/* =========================
+   NAVBAR
+========================= */
+
 nav{
     height:75px;
+
     background:var(--navbar);
+
     display:grid;
     grid-template-columns:1fr auto 1fr;
+
     align-items:center;
+
     padding:0 7%;
 }
 
 .logo{
     font-size:25px;
+
     font-weight:900;
+
     color:var(--texto);
+
     justify-self:start;
 }
 
@@ -52,22 +66,32 @@ nav{
 
 .menu{
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:8px;
 }
 
 .menu a{
     position:relative;
+
     text-decoration:none;
-    color:var(--secundario);
+
+    color:#CBD5E1;
+
     font-size:15px;
+
     font-weight:700;
+
     padding:12px 18px;
+
+    transition:.2s;
 }
 
 .menu a:hover{
-    color:var(--violeta);
+    color:var(--cyan);
 }
 
 .menu a.activo{
@@ -76,25 +100,36 @@ nav{
 
 .menu a.activo::after{
     content:"";
+
     position:absolute;
+
     left:18px;
     right:18px;
+
     bottom:3px;
+
     height:3px;
+
     background:var(--violeta);
+
     border-radius:5px;
 }
 
 .cuenta{
     display:flex;
+
     align-items:center;
+
     justify-content:flex-end;
+
     gap:12px;
 }
 
 .cuenta a{
     text-decoration:none;
+
     font-size:14px;
+
     font-weight:700;
 }
 
@@ -102,16 +137,35 @@ nav{
     color:var(--texto);
 }
 
+.login:hover{
+    color:var(--cyan);
+}
+
 .registro{
     background:var(--violeta);
+
     color:white;
+
     padding:10px 17px;
+
     border-radius:8px;
+
+    transition:.2s;
 }
+
+.registro:hover{
+    background:var(--rosa);
+}
+
+/* =========================
+   CONTENIDO
+========================= */
 
 main{
     width:86%;
+
     max-width:1250px;
+
     margin:auto;
 }
 
@@ -121,44 +175,69 @@ main{
 
 .encabezado span{
     color:var(--violeta);
+
     font-size:13px;
+
     font-weight:800;
 }
 
 .encabezado h1{
     font-size:42px;
+
     margin:12px 0;
+
+    color:var(--texto);
 }
 
 .encabezado p{
     color:var(--secundario);
+
     font-size:16px;
 }
 
+/* =========================
+   NOTICIAS
+========================= */
+
 .grid{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:25px;
+
     padding-bottom:60px;
 }
 
 .noticia{
     background:var(--tarjeta);
-    border:1px solid #ddd8e8;
+
+    border:1px solid var(--borde);
+
     border-radius:15px;
+
     overflow:hidden;
+
     transition:.2s;
 }
 
 .noticia:hover{
     transform:translateY(-4px);
+
+    border-color:var(--violeta);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .noticia img{
     width:100%;
+
     height:200px;
+
     object-fit:cover;
-    background:#191625;
+
+    background:var(--navbar);
+
     display:block;
 }
 
@@ -168,34 +247,79 @@ main{
 
 .fecha{
     color:var(--violeta);
+
     font-size:12px;
+
     font-weight:800;
 }
 
 .contenido h2{
     font-size:21px;
+
     margin:10px 0;
+
+    color:var(--texto);
 }
 
 .contenido p{
     color:var(--secundario);
+
     line-height:1.6;
+
     font-size:14px;
+
     margin-bottom:15px;
 }
 
 .contenido a{
     text-decoration:none;
-    color:var(--violeta);
+
+    color:var(--cyan);
+
     font-weight:800;
+
     font-size:14px;
+
+    transition:.2s;
 }
 
+.contenido a:hover{
+    color:var(--rosa);
+}
+
+/* =========================
+   DIFERENCIAR CATEGORÍAS
+========================= */
+
+.noticia:nth-child(1) .fecha,
+.noticia:nth-child(2) .fecha,
+.noticia:nth-child(3) .fecha,
+.noticia:nth-child(4) .fecha{
+    color:var(--rosa);
+}
+
+.noticia:nth-child(5) .fecha,
+.noticia:nth-child(6) .fecha,
+.noticia:nth-child(7) .fecha,
+.noticia:nth-child(8) .fecha,
+.noticia:nth-child(9) .fecha,
+.noticia:nth-child(10) .fecha{
+    color:var(--violeta);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media(max-width:800px){
+
     nav{
         grid-template-columns:1fr;
+
         height:auto;
+
         gap:10px;
+
         padding:18px;
     }
 
@@ -215,136 +339,381 @@ main{
     .encabezado h1{
         font-size:34px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <nav>
-    <div class="logo">GAME<span>ZONE</span></div>
+
+    <div class="logo">
+        GAME<span>ZONE</span>
+    </div>
 
     <div class="menu">
-        <a href="index.html">Inicio</a>
-        <a href="juegos.html">Juegos</a>
-        <a href="generos.html">Géneros</a>
-        <a href="noticias.html" class="activo">Noticias</a>
+
+        <a href="index.html">
+            Inicio
+        </a>
+
+        <a href="juegos.html">
+            Juegos
+        </a>
+
+        <a href="generos.html">
+            Géneros
+        </a>
+
+        <a href="noticias.html" class="activo">
+            Noticias
+        </a>
+
     </div>
 
     <div class="cuenta">
-        <a href="login.html" class="login">Iniciar sesión</a>
-        <a href="login.html" class="registro">Registrarse</a>
+
+        <a href="login.html" class="login">
+            Iniciar sesión
+        </a>
+
+        <a href="login.html" class="registro">
+            Registrarse
+        </a>
+
     </div>
+
 </nav>
 
 <main>
 
 <section class="encabezado">
-    <span>ACTUALIDAD GAMING</span>
-    <h1>NOTICIAS Y NOVEDADES</h1>
-    <p>Conoce las últimas novedades, anuncios y lanzamientos del mundo de los videojuegos.</p>
+
+    <span>
+        ACTUALIDAD GAMING
+    </span>
+
+    <h1>
+        NOTICIAS Y NOVEDADES
+    </h1>
+
+    <p>
+        Conoce las últimas novedades, anuncios y lanzamientos del mundo de los videojuegos.
+    </p>
+
 </section>
 
 <section class="grid">
 
-    <article class="noticia">
-        <img src="img/gta6.jpg" alt="GTA 6">
-        <div class="contenido">
-            <span class="fecha">PRÓXIMO LANZAMIENTO</span>
-            <h2>GTA 6 continúa siendo uno de los juegos más esperados</h2>
-            <p>El nuevo título de Rockstar Games mantiene la atención de millones de jugadores.</p>
-            <a href="juegos.html">Ver juego →</a>
-        </div>
-    </article>
+    <!-- GTA 6 -->
 
     <article class="noticia">
-        <img src="img/resident-evil-requiem.jpg" alt="Resident Evil Requiem">
+
+        <img
+            src="img/gta6.jpg"
+            alt="GTA 6">
+
         <div class="contenido">
-            <span class="fecha">PRÓXIMO LANZAMIENTO</span>
-            <h2>Resident Evil Requiem prepara una nueva experiencia de terror</h2>
-            <p>La reconocida saga de terror regresa con una nueva entrega.</p>
-            <a href="juegos.html">Ver juego →</a>
+
+            <span class="fecha">
+                PRÓXIMO LANZAMIENTO
+            </span>
+
+            <h2>
+                GTA 6 continúa siendo uno de los juegos más esperados
+            </h2>
+
+            <p>
+                El nuevo título de Rockstar Games mantiene la atención de millones de jugadores.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
         </div>
+
     </article>
 
-    <article class="noticia">
-        <img src="img/wolverine.jpg" alt="Marvel's Wolverine">
-        <div class="contenido">
-            <span class="fecha">PRÓXIMO LANZAMIENTO</span>
-            <h2>Marvel's Wolverine presenta una aventura llena de acción</h2>
-            <p>El personaje de Marvel protagonizará una nueva aventura desarrollada para jugadores.</p>
-            <a href="juegos.html">Ver juego →</a>
-        </div>
-    </article>
+
+    <!-- RESIDENT EVIL -->
 
     <article class="noticia">
-        <img src="img/007-first-light.jpg" alt="007 First Light">
+
+        <img
+            src="img/resident-evil-requiem.jpg"
+            alt="Resident Evil Requiem">
+
         <div class="contenido">
-            <span class="fecha">PRÓXIMO LANZAMIENTO</span>
-            <h2>007: First Light llevará al jugador a una nueva misión</h2>
-            <p>James Bond regresa al mundo de los videojuegos con una nueva aventura.</p>
-            <a href="juegos.html">Ver juego →</a>
+
+            <span class="fecha">
+                PRÓXIMO LANZAMIENTO
+            </span>
+
+            <h2>
+                Resident Evil Requiem prepara una nueva experiencia de terror
+            </h2>
+
+            <p>
+                La reconocida saga de terror regresa con una nueva entrega.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
         </div>
+
     </article>
 
-    <article class="noticia">
-        <img src="img/cyberpunk.jpg" alt="Cyberpunk 2077">
-        <div class="contenido">
-            <span class="fecha">VIDEOJUEGOS</span>
-            <h2>Cyberpunk 2077 continúa destacando por su mundo abierto</h2>
-            <p>Night City ofrece una experiencia de acción y rol ambientada en un futuro tecnológico.</p>
-            <a href="juegos.html">Ver juego →</a>
-        </div>
-    </article>
+
+    <!-- WOLVERINE -->
 
     <article class="noticia">
-        <img src="img/eldenring.jpg" alt="Elden Ring">
+
+        <img
+            src="img/wolverine.jpg"
+            alt="Marvel's Wolverine">
+
         <div class="contenido">
-            <span class="fecha">VIDEOJUEGOS</span>
-            <h2>Elden Ring sigue siendo uno de los RPG más destacados</h2>
-            <p>Su mundo abierto, exploración y combate lo mantienen como uno de los referentes del género.</p>
-            <a href="juegos.html">Ver juego →</a>
+
+            <span class="fecha">
+                PRÓXIMO LANZAMIENTO
+            </span>
+
+            <h2>
+                Marvel's Wolverine presenta una aventura llena de acción
+            </h2>
+
+            <p>
+                El personaje de Marvel protagonizará una nueva aventura desarrollada para jugadores.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
         </div>
+
     </article>
 
-    <article class="noticia">
-        <img src="img/minecraft.jpg" alt="Minecraft">
-        <div class="contenido">
-            <span class="fecha">VIDEOJUEGOS</span>
-            <h2>Minecraft continúa siendo una referencia de creatividad</h2>
-            <p>El juego de construcción y supervivencia continúa siendo popular entre jugadores de todas las edades.</p>
-            <a href="juegos.html">Ver juego →</a>
-        </div>
-    </article>
+
+    <!-- 007 -->
 
     <article class="noticia">
-        <img src="img/valorant.jpg" alt="Valorant">
+
+        <img
+            src="img/007-first-light.jpg"
+            alt="007 First Light">
+
         <div class="contenido">
-            <span class="fecha">VIDEOJUEGOS</span>
-            <h2>Valorant mantiene su presencia en la escena competitiva</h2>
-            <p>El shooter táctico continúa creciendo dentro de los videojuegos competitivos.</p>
-            <a href="juegos.html">Ver juego →</a>
+
+            <span class="fecha">
+                PRÓXIMO LANZAMIENTO
+            </span>
+
+            <h2>
+                007: First Light llevará al jugador a una nueva misión
+            </h2>
+
+            <p>
+                James Bond regresa al mundo de los videojuegos con una nueva aventura.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
         </div>
+
     </article>
 
-    <article class="noticia">
-        <img src="img/godofwar.jpg" alt="God of War Ragnarök">
-        <div class="contenido">
-            <span class="fecha">VIDEOJUEGOS</span>
-            <h2>God of War Ragnarök destaca por su historia y combate</h2>
-            <p>La aventura de Kratos y Atreus combina acción, exploración y narrativa.</p>
-            <a href="juegos.html">Ver juego →</a>
-        </div>
-    </article>
+
+    <!-- CYBERPUNK -->
 
     <article class="noticia">
-        <img src="img/thelastofus.jpg" alt="The Last of Us Part II">
+
+        <img
+            src="img/cyberpunk.jpg"
+            alt="Cyberpunk 2077">
+
         <div class="contenido">
-            <span class="fecha">VIDEOJUEGOS</span>
-            <h2>The Last of Us Part II destaca por su narrativa</h2>
-            <p>Una aventura centrada en la historia, exploración y supervivencia.</p>
-            <a href="juegos.html">Ver juego →</a>
+
+            <span class="fecha">
+                VIDEOJUEGOS
+            </span>
+
+            <h2>
+                Cyberpunk 2077 continúa destacando por su mundo abierto
+            </h2>
+
+            <p>
+                Night City ofrece una experiencia de acción y rol ambientada en un futuro tecnológico.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
         </div>
+
+    </article>
+
+
+    <!-- ELDEN RING -->
+
+    <article class="noticia">
+
+        <img
+            src="img/eldenring.jpg"
+            alt="Elden Ring">
+
+        <div class="contenido">
+
+            <span class="fecha">
+                VIDEOJUEGOS
+            </span>
+
+            <h2>
+                Elden Ring sigue siendo uno de los RPG más destacados
+            </h2>
+
+            <p>
+                Su mundo abierto, exploración y combate lo mantienen como uno de los referentes del género.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- MINECRAFT -->
+
+    <article class="noticia">
+
+        <img
+            src="img/minecraft.jpg"
+            alt="Minecraft">
+
+        <div class="contenido">
+
+            <span class="fecha">
+                VIDEOJUEGOS
+            </span>
+
+            <h2>
+                Minecraft continúa siendo una referencia de creatividad
+            </h2>
+
+            <p>
+                El juego de construcción y supervivencia continúa siendo popular entre jugadores de todas las edades.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- VALORANT -->
+
+    <article class="noticia">
+
+        <img
+            src="img/valorant.jpg"
+            alt="Valorant">
+
+        <div class="contenido">
+
+            <span class="fecha">
+                VIDEOJUEGOS
+            </span>
+
+            <h2>
+                Valorant mantiene su presencia en la escena competitiva
+            </h2>
+
+            <p>
+                El shooter táctico continúa creciendo dentro de los videojuegos competitivos.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- GOD OF WAR -->
+
+    <article class="noticia">
+
+        <img
+            src="img/godofwar.jpg"
+            alt="God of War Ragnarök">
+
+        <div class="contenido">
+
+            <span class="fecha">
+                VIDEOJUEGOS
+            </span>
+
+            <h2>
+                God of War Ragnarök destaca por su historia y combate
+            </h2>
+
+            <p>
+                La aventura de Kratos y Atreus combina acción, exploración y narrativa.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- THE LAST OF US -->
+
+    <article class="noticia">
+
+        <img
+            src="img/thelastofus.jpg"
+            alt="The Last of Us Part II">
+
+        <div class="contenido">
+
+            <span class="fecha">
+                VIDEOJUEGOS
+            </span>
+
+            <h2>
+                The Last of Us Part II destaca por su narrativa
+            </h2>
+
+            <p>
+                Una aventura centrada en la historia, exploración y supervivencia.
+            </p>
+
+            <a href="juegos.html">
+                Ver juego →
+            </a>
+
+        </div>
+
     </article>
 
 </section>

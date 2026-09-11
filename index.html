@@ -7,15 +7,14 @@
 
 <style>
 :root{
-    --fondo:#F0EEF7;
-    --navbar:#D9D3EA;
-    --tarjeta:#FAF8FF;
-    --texto:#191625;
-    --secundario:#625B72;
-    --violeta:#7057E8;
-    --rosa:#E9578F;
-    --naranja:#F4A340;
-    --azul:#4F8FE8;
+    --fondo:#0F172A;
+    --navbar:#111827;
+    --tarjeta:#1E293B;
+    --texto:#F8FAFC;
+    --secundario:#94A3B8;
+    --violeta:#7C3AED;
+    --cyan:#06B6D4;
+    --rosa:#EC4899;
 }
 
 *{
@@ -67,7 +66,7 @@ nav{
 }
 
 .menu a:hover{
-    color:var(--violeta);
+    color:var(--cyan);
 }
 
 .menu a.activo{
@@ -126,7 +125,7 @@ main{
 
 .etiqueta{
     display:inline-block;
-    color:var(--violeta);
+    color:var(--cyan);
     font-size:13px;
     font-weight:800;
     margin-bottom:15px;
@@ -168,17 +167,26 @@ main{
     color:white;
 }
 
+.btn-principal:hover{
+    background:#6D28D9;
+}
+
 .btn-secundario{
-    background:white;
+    background:var(--tarjeta);
     color:var(--texto);
-    border:1px solid #d5d0df;
+    border:1px solid var(--cyan);
+}
+
+.btn-secundario:hover{
+    background:var(--cyan);
+    color:#0F172A;
 }
 
 .hero-img{
     height:300px;
     border-radius:18px;
     background:url("img/cyberpunk.jpg") center/cover no-repeat;
-    background-color:#191625;
+    background-color:#111827;
 }
 
 .seccion{
@@ -198,7 +206,7 @@ main{
 
 .ver-todos{
     text-decoration:none;
-    color:var(--violeta);
+    color:var(--cyan);
     font-weight:700;
     font-size:14px;
 }
@@ -213,12 +221,13 @@ main{
     background:var(--tarjeta);
     border-radius:15px;
     overflow:hidden;
-    border:1px solid #ddd8e8;
+    border:1px solid #334155;
     transition:.2s;
 }
 
 .card:hover{
     transform:translateY(-4px);
+    border-color:var(--violeta);
 }
 
 .imagen{
@@ -226,7 +235,7 @@ main{
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center;
-    background-color:#191625;
+    background-color:#111827;
 }
 
 .imagen.cyberpunk{
@@ -261,23 +270,18 @@ main{
 }
 
 .violeta{
-    background:#e5defd;
-    color:var(--violeta);
+    background:#2E1065;
+    color:#A78BFA;
 }
 
 .rosa{
-    background:#fbdce8;
-    color:var(--rosa);
+    background:#500724;
+    color:#F9A8D4;
 }
 
-.naranja{
-    background:#ffebcd;
-    color:#c77a10;
-}
-
-.azul{
-    background:#dceafd;
-    color:#3775ca;
+.cyan{
+    background:#083344;
+    color:#67E8F9;
 }
 
 .lanzamientos{
@@ -291,7 +295,7 @@ main{
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(20,15,30,.75);
+    background:rgba(2,6,23,.85);
     display:none;
     align-items:center;
     justify-content:center;
@@ -309,6 +313,7 @@ main{
     background:var(--tarjeta);
     border-radius:16px;
     padding:22px;
+    border:1px solid #334155;
 }
 
 .modal-header{
@@ -326,10 +331,14 @@ main{
     color:var(--texto);
 }
 
+.cerrar:hover{
+    color:var(--rosa);
+}
+
 .video{
     height:320px;
     border-radius:12px;
-    background:linear-gradient(135deg,var(--violeta),var(--azul));
+    background:linear-gradient(135deg,var(--violeta),var(--cyan));
     display:flex;
     align-items:center;
     justify-content:center;
@@ -442,7 +451,7 @@ main{
             <div class="card-info">
                 <h3>Minecraft</h3>
                 <p>Supervivencia · Mundo abierto</p>
-                <span class="etiqueta-juego naranja">SUPERVIVENCIA</span>
+                <span class="etiqueta-juego cyan">SUPERVIVENCIA</span>
             </div>
         </div>
 
@@ -479,7 +488,7 @@ main{
             <div class="card-info">
                 <h3>Marvel's Wolverine</h3>
                 <p>Acción · Aventura</p>
-                <span class="etiqueta-juego azul">PRÓXIMO</span>
+                <span class="etiqueta-juego cyan">PRÓXIMO</span>
             </div>
         </div>
 
@@ -488,7 +497,7 @@ main{
             <div class="card-info">
                 <h3>007: First Light</h3>
                 <p>Acción · Aventura</p>
-                <span class="etiqueta-juego naranja">PRÓXIMO</span>
+                <span class="etiqueta-juego violeta">PRÓXIMO</span>
             </div>
         </div>
 

@@ -7,15 +7,15 @@
 
 <style>
 :root{
-    --fondo:#F0EEF7;
-    --navbar:#D9D3EA;
-    --tarjeta:#FAF8FF;
-    --texto:#191625;
-    --secundario:#625B72;
-    --violeta:#7057E8;
-    --rosa:#E9578F;
-    --naranja:#F4A340;
-    --azul:#4F8FE8;
+    --fondo:#0F172A;
+    --navbar:#111827;
+    --tarjeta:#1E293B;
+    --texto:#F8FAFC;
+    --secundario:#94A3B8;
+    --violeta:#7C3AED;
+    --cyan:#06B6D4;
+    --rosa:#EC4899;
+    --borde:#334155;
 }
 
 *{
@@ -30,6 +30,8 @@ body{
     color:var(--texto);
 }
 
+/* NAVBAR */
+
 nav{
     height:75px;
     background:var(--navbar);
@@ -42,8 +44,12 @@ nav{
 .logo{
     font-size:25px;
     font-weight:900;
-    color:var(--violeta);
+    color:var(--texto);
     justify-self:start;
+}
+
+.logo span{
+    color:var(--violeta);
 }
 
 .menu{
@@ -63,7 +69,22 @@ nav{
 }
 
 .menu a:hover{
+    color:var(--cyan);
+}
+
+.menu a.activo{
     color:var(--violeta);
+}
+
+.menu a.activo::after{
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:3px;
+    height:3px;
+    background:var(--violeta);
+    border-radius:5px;
 }
 
 .cuenta{
@@ -74,22 +95,32 @@ nav{
 }
 
 .login{
-    color:var(--violeta);
+    color:var(--texto);
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
     font-weight:700;
     padding:11px 16px;
+}
+
+.login:hover{
+    color:var(--cyan);
 }
 
 .registro{
     background:var(--violeta);
     color:white;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
     font-weight:700;
-    padding:12px 18px;
-    border-radius:10px;
+    padding:10px 17px;
+    border-radius:8px;
 }
+
+.registro:hover{
+    background:var(--rosa);
+}
+
+/* CONTENIDO PRINCIPAL */
 
 main{
     max-width:1300px;
@@ -109,10 +140,14 @@ main{
     border-radius:18px;
     background-position:center;
     background-size:cover;
+    background-color:var(--navbar);
+    border:1px solid var(--borde);
 }
 
+/* INFORMACIÓN */
+
 .detalle-info small{
-    color:var(--rosa);
+    color:var(--cyan);
     font-weight:bold;
     letter-spacing:1px;
 }
@@ -120,6 +155,7 @@ main{
 .detalle-info h1{
     font-size:48px;
     margin:10px 0;
+    color:var(--texto);
 }
 
 .detalle-info p{
@@ -145,6 +181,8 @@ main{
     color:var(--texto);
 }
 
+/* BOTONES */
+
 .botones{
     display:flex;
     gap:12px;
@@ -166,11 +204,22 @@ main{
     border:none;
 }
 
+.btn-principal:hover{
+    background:var(--rosa);
+}
+
 .btn-secundario{
     background:var(--tarjeta);
     color:var(--texto);
-    border:1px solid #DDD7EC;
+    border:1px solid var(--cyan);
 }
+
+.btn-secundario:hover{
+    background:var(--cyan);
+    color:var(--fondo);
+}
+
+/* CARACTERÍSTICAS */
 
 .caracteristicas{
     margin-top:50px;
@@ -179,6 +228,7 @@ main{
 .caracteristicas h2,
 .relacionados h2{
     font-size:27px;
+    color:var(--texto);
 }
 
 .caracteristicas-grid{
@@ -190,11 +240,14 @@ main{
 
 .caracteristica{
     background:var(--tarjeta);
-    border:1px solid #DDD7EC;
+    border:1px solid var(--borde);
     border-radius:10px;
     padding:20px;
     text-align:center;
+    color:var(--texto);
 }
+
+/* LOS 4 COLORES */
 
 .caracteristica:nth-child(1){
     border-top:4px solid var(--violeta);
@@ -205,12 +258,14 @@ main{
 }
 
 .caracteristica:nth-child(3){
-    border-top:4px solid var(--naranja);
+    border-top:4px solid var(--cyan);
 }
 
 .caracteristica:nth-child(4){
-    border-top:4px solid var(--azul);
+    border-top:4px solid var(--fondo);
 }
+
+/* JUEGOS RELACIONADOS */
 
 .relacionados{
     margin-top:45px;
@@ -225,9 +280,15 @@ main{
 
 .relacionado{
     background:var(--tarjeta);
-    border:1px solid #DDD7EC;
+    border:1px solid var(--borde);
     border-radius:10px;
     overflow:hidden;
+    transition:.2s;
+}
+
+.relacionado:hover{
+    transform:translateY(-4px);
+    border-color:var(--violeta);
 }
 
 .relacionado .imagen{
@@ -238,7 +299,10 @@ main{
 
 .relacionado h3{
     padding:14px;
+    color:var(--texto);
 }
+
+/* IMÁGENES */
 
 .cyber{
     background-image:url("img/cyberpunk.jpg");
@@ -264,14 +328,17 @@ main{
     background-image:url("img/thelastofus.jpg");
 }
 
+/* MODAL */
+
 .modal{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(25,22,37,.7);
+    background:rgba(2,6,23,.85);
     z-index:100;
     align-items:center;
     justify-content:center;
+    padding:20px;
 }
 
 .modal.activo{
@@ -284,6 +351,7 @@ main{
     max-width:90%;
     padding:25px;
     border-radius:16px;
+    border:1px solid var(--borde);
 }
 
 .modal-header{
@@ -293,6 +361,10 @@ main{
     margin-bottom:15px;
 }
 
+.modal-header h2{
+    color:var(--texto);
+}
+
 .cerrar{
     width:35px;
     height:35px;
@@ -300,12 +372,24 @@ main{
     border-radius:50%;
     cursor:pointer;
     font-size:20px;
+    background:#334155;
+    color:var(--texto);
+}
+
+.cerrar:hover{
+    background:var(--rosa);
+    color:white;
 }
 
 .video{
     height:320px;
     border-radius:12px;
-    background:linear-gradient(135deg,var(--violeta),var(--azul));
+    background:linear-gradient(
+        135deg,
+        var(--violeta),
+        var(--cyan),
+        var(--rosa)
+    );
     display:flex;
     align-items:center;
     justify-content:center;
@@ -313,7 +397,10 @@ main{
     font-size:60px;
 }
 
+/* RESPONSIVE */
+
 @media(max-width:900px){
+
     nav{
         grid-template-columns:1fr 1fr;
         height:auto;
@@ -342,9 +429,11 @@ main{
     .relacionados-grid{
         grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 @media(max-width:600px){
+
     .cuenta{
         display:none;
     }
@@ -361,6 +450,7 @@ main{
     .relacionados-grid{
         grid-template-columns:1fr;
     }
+
 }
 </style>
 </head>
@@ -368,7 +458,10 @@ main{
 <body>
 
 <nav>
-    <div class="logo">GAMEZONE</div>
+
+    <div class="logo">
+        GAME<span>ZONE</span>
+    </div>
 
     <div class="menu">
         <a href="index.html">Inicio</a>
@@ -378,9 +471,15 @@ main{
     </div>
 
     <div class="cuenta">
-        <a href="login.html" class="login">Iniciar sesión</a>
-        <a href="#" class="registro">Registrarse</a>
+        <a href="login.html" class="login">
+            Iniciar sesión
+        </a>
+
+        <a href="login.html" class="registro">
+            Registrarse
+        </a>
     </div>
+
 </nav>
 
 <main>
@@ -391,9 +490,13 @@ main{
 
         <div class="detalle-info">
 
-            <small id="categoriaJuego">JUEGO DESTACADO</small>
+            <small id="categoriaJuego">
+                JUEGO DESTACADO
+            </small>
 
-            <h1 id="nombreJuego">ELDEN RING</h1>
+            <h1 id="nombreJuego">
+                ELDEN RING
+            </h1>
 
             <p id="descripcionJuego">
                 Un RPG de acción y fantasía desarrollado por FromSoftware
@@ -404,22 +507,30 @@ main{
 
                 <div>
                     <strong>Género:</strong>
-                    <span id="generoJuego">RPG / Acción</span>
+                    <span id="generoJuego">
+                        RPG / Acción
+                    </span>
                 </div>
 
                 <div>
                     <strong>Desarrollador:</strong>
-                    <span id="desarrolladorJuego">FromSoftware</span>
+                    <span id="desarrolladorJuego">
+                        FromSoftware
+                    </span>
                 </div>
 
                 <div>
                     <strong>Plataformas:</strong>
-                    <span id="plataformasJuego">PC, PlayStation, Xbox</span>
+                    <span id="plataformasJuego">
+                        PC, PlayStation, Xbox
+                    </span>
                 </div>
 
                 <div>
                     <strong>Tipo:</strong>
-                    <span id="tipoJuego">Mundo abierto</span>
+                    <span id="tipoJuego">
+                        Mundo abierto
+                    </span>
                 </div>
 
             </div>
@@ -447,19 +558,27 @@ main{
         <div class="caracteristicas-grid">
 
             <div class="caracteristica">
-                <strong id="caracteristica1">Mundo abierto</strong>
+                <strong id="caracteristica1">
+                    Mundo abierto
+                </strong>
             </div>
 
             <div class="caracteristica">
-                <strong id="caracteristica2">Combate</strong>
+                <strong id="caracteristica2">
+                    Combate
+                </strong>
             </div>
 
             <div class="caracteristica">
-                <strong id="caracteristica3">Exploración</strong>
+                <strong id="caracteristica3">
+                    Exploración
+                </strong>
             </div>
 
             <div class="caracteristica">
-                <strong id="caracteristica4">Personalización</strong>
+                <strong id="caracteristica4">
+                    Personalización
+                </strong>
             </div>
 
         </div>
@@ -499,9 +618,13 @@ main{
 
         <div class="modal-header">
 
-            <h2 id="tituloTrailer">Trailer — Elden Ring</h2>
+            <h2 id="tituloTrailer">
+                Trailer — Elden Ring
+            </h2>
 
-            <button class="cerrar" onclick="cerrarTrailer()">×</button>
+            <button class="cerrar" onclick="cerrarTrailer()">
+                ×
+            </button>
 
         </div>
 
@@ -518,7 +641,9 @@ main{
 </div>
 
 <script>
+
 const juegos = {
+
     cyberpunk:{
         nombre:"CYBERPUNK 2077",
         categoria:"RPG / ACCIÓN",
@@ -528,7 +653,12 @@ const juegos = {
         desarrollador:"CD Projekt Red",
         plataformas:"PC, PlayStation, Xbox",
         tipo:"Mundo abierto",
-        caracteristicas:["Mundo abierto","Combate","Exploración","Personalización"]
+        caracteristicas:[
+            "Mundo abierto",
+            "Combate",
+            "Exploración",
+            "Personalización"
+        ]
     },
 
     eldenring:{
@@ -540,7 +670,12 @@ const juegos = {
         desarrollador:"FromSoftware",
         plataformas:"PC, PlayStation, Xbox",
         tipo:"Mundo abierto",
-        caracteristicas:["Mundo abierto","Combate","Exploración","Personalización"]
+        caracteristicas:[
+            "Mundo abierto",
+            "Combate",
+            "Exploración",
+            "Personalización"
+        ]
     },
 
     minecraft:{
@@ -552,7 +687,12 @@ const juegos = {
         desarrollador:"Mojang Studios",
         plataformas:"PC, PlayStation, Xbox",
         tipo:"Mundo abierto",
-        caracteristicas:["Construcción","Supervivencia","Exploración","Creatividad"]
+        caracteristicas:[
+            "Construcción",
+            "Supervivencia",
+            "Exploración",
+            "Creatividad"
+        ]
     },
 
     valorant:{
@@ -564,7 +704,12 @@ const juegos = {
         desarrollador:"Riot Games",
         plataformas:"PC",
         tipo:"Competitivo",
-        caracteristicas:["Competitivo","Combate","Estrategia","Habilidades"]
+        caracteristicas:[
+            "Competitivo",
+            "Combate",
+            "Estrategia",
+            "Habilidades"
+        ]
     },
 
     godofwar:{
@@ -576,7 +721,12 @@ const juegos = {
         desarrollador:"Santa Monica Studio",
         plataformas:"PlayStation, PC",
         tipo:"Aventura",
-        caracteristicas:["Historia","Combate","Exploración","Mitología"]
+        caracteristicas:[
+            "Historia",
+            "Combate",
+            "Exploración",
+            "Mitología"
+        ]
     },
 
     thelastofus:{
@@ -588,50 +738,101 @@ const juegos = {
         desarrollador:"Naughty Dog",
         plataformas:"PlayStation",
         tipo:"Historia",
-        caracteristicas:["Historia","Supervivencia","Combate","Exploración"]
+        caracteristicas:[
+            "Historia",
+            "Supervivencia",
+            "Combate",
+            "Exploración"
+        ]
     }
+
 };
 
 const parametro = new URLSearchParams(window.location.search);
-const juegoSeleccionado = parametro.get("juego") || "eldenring";
-const juego = juegos[juegoSeleccionado] || juegos.eldenring;
 
-document.getElementById("nombreJuego").textContent=juego.nombre;
-document.getElementById("categoriaJuego").textContent=juego.categoria;
-document.getElementById("descripcionJuego").textContent=juego.descripcion;
-document.getElementById("generoJuego").textContent=juego.genero;
-document.getElementById("desarrolladorJuego").textContent=juego.desarrollador;
-document.getElementById("plataformasJuego").textContent=juego.plataformas;
-document.getElementById("tipoJuego").textContent=juego.tipo;
+const juegoSeleccionado =
+    parametro.get("juego") || "eldenring";
 
-document.getElementById("imagenJuego").style.backgroundImage=`url("${juego.imagen}")`;
+const juego =
+    juegos[juegoSeleccionado] || juegos.eldenring;
 
-document.getElementById("caracteristica1").textContent=juego.caracteristicas[0];
-document.getElementById("caracteristica2").textContent=juego.caracteristicas[1];
-document.getElementById("caracteristica3").textContent=juego.caracteristicas[2];
-document.getElementById("caracteristica4").textContent=juego.caracteristicas[3];
+document.getElementById("nombreJuego").textContent =
+    juego.nombre;
 
-document.getElementById("tituloTrailer").textContent="Trailer — "+juego.nombre;
+document.getElementById("categoriaJuego").textContent =
+    juego.categoria;
+
+document.getElementById("descripcionJuego").textContent =
+    juego.descripcion;
+
+document.getElementById("generoJuego").textContent =
+    juego.genero;
+
+document.getElementById("desarrolladorJuego").textContent =
+    juego.desarrollador;
+
+document.getElementById("plataformasJuego").textContent =
+    juego.plataformas;
+
+document.getElementById("tipoJuego").textContent =
+    juego.tipo;
+
+document.getElementById("imagenJuego").style.backgroundImage =
+    `url("${juego.imagen}")`;
+
+document.getElementById("caracteristica1").textContent =
+    juego.caracteristicas[0];
+
+document.getElementById("caracteristica2").textContent =
+    juego.caracteristicas[1];
+
+document.getElementById("caracteristica3").textContent =
+    juego.caracteristicas[2];
+
+document.getElementById("caracteristica4").textContent =
+    juego.caracteristicas[3];
+
+document.getElementById("tituloTrailer").textContent =
+    "Trailer — " + juego.nombre;
 
 function abrirTrailer(){
-    document.getElementById("modal").classList.add("activo");
+
+    document
+        .getElementById("modal")
+        .classList.add("activo");
+
 }
 
 function cerrarTrailer(){
-    document.getElementById("modal").classList.remove("activo");
+
+    document
+        .getElementById("modal")
+        .classList.remove("activo");
+
 }
 
-document.getElementById("modal").addEventListener("click",function(e){
-    if(e.target===this){
-        cerrarTrailer();
-    }
-});
+document.getElementById("modal").addEventListener(
+    "click",
+    function(e){
 
-document.addEventListener("keydown",function(e){
-    if(e.key==="Escape"){
-        cerrarTrailer();
+        if(e.target === this){
+            cerrarTrailer();
+        }
+
     }
-});
+);
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+            cerrarTrailer();
+        }
+
+    }
+);
+
 </script>
 
 </body>

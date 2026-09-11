@@ -7,15 +7,15 @@
 
     <style>
         :root{
-            --fondo:#F0EEF7;
-            --navbar:#D9D3EA;
-            --tarjeta:#FAF8FF;
-            --texto:#191625;
-            --secundario:#625B72;
-            --violeta:#7057E8;
-            --rosa:#E9578F;
-            --naranja:#F4A340;
-            --azul:#4F8FE8;
+            --fondo:#0F172A;
+            --navbar:#111827;
+            --tarjeta:#1E293B;
+            --texto:#F8FAFC;
+            --secundario:#94A3B8;
+            --violeta:#7C3AED;
+            --cyan:#06B6D4;
+            --rosa:#EC4899;
+            --borde:#334155;
         }
 
         *{
@@ -30,6 +30,8 @@
             color:var(--texto);
         }
 
+        /* NAVBAR */
+
         nav{
             height:75px;
             background:var(--navbar);
@@ -42,8 +44,12 @@
         .logo{
             font-size:25px;
             font-weight:900;
-            color:var(--violeta);
+            color:var(--texto);
             justify-self:start;
+        }
+
+        .logo span{
+            color:var(--violeta);
         }
 
         .menu{
@@ -63,7 +69,7 @@
         }
 
         .menu a:hover{
-            color:var(--violeta);
+            color:var(--cyan);
         }
 
         .menu a.activo{
@@ -89,30 +95,44 @@
         }
 
         .login{
-            color:var(--violeta);
+            color:var(--texto);
             text-decoration:none;
-            font-size:15px;
+            font-size:14px;
             font-weight:700;
             padding:11px 16px;
+        }
+
+        .login:hover{
+            color:var(--cyan);
         }
 
         .registro{
             background:var(--violeta);
             color:white;
             text-decoration:none;
-            font-size:15px;
+            font-size:14px;
             font-weight:700;
-            padding:12px 18px;
-            border-radius:10px;
+            padding:10px 17px;
+            border-radius:8px;
         }
 
+        .registro:hover{
+            background:var(--rosa);
+        }
+
+        /* CONTENIDO */
+
         main{
-            padding:60px 8%;
+            width:86%;
+            max-width:1250px;
+            margin:auto;
+            padding:55px 0 60px;
         }
 
         h1{
             font-size:42px;
             margin-bottom:12px;
+            color:var(--texto);
         }
 
         .descripcion{
@@ -120,6 +140,8 @@
             font-size:17px;
             margin-bottom:40px;
         }
+
+        /* GENEROS */
 
         .generos{
             display:grid;
@@ -135,7 +157,16 @@
             display:flex;
             flex-direction:column;
             justify-content:space-between;
+            transition:.2s;
+            border:1px solid transparent;
         }
+
+        .genero:hover{
+            transform:translateY(-5px);
+            box-shadow:0 10px 25px rgba(0,0,0,.25);
+        }
+
+        /* CUATRO COLORES */
 
         .violeta{
             background:var(--violeta);
@@ -145,12 +176,13 @@
             background:var(--rosa);
         }
 
-        .naranja{
-            background:var(--naranja);
+        .cian{
+            background:var(--cyan);
         }
 
-        .azul{
-            background:var(--azul);
+        .azul-noche{
+            background:var(--navbar);
+            border-color:var(--borde);
         }
 
         .genero h2{
@@ -169,7 +201,14 @@
             margin-top:25px;
         }
 
+        .genero a:hover{
+            text-decoration:underline;
+        }
+
+        /* RESPONSIVE */
+
         @media(max-width:900px){
+
             nav{
                 grid-template-columns:1fr 1fr;
                 height:auto;
@@ -191,13 +230,37 @@
                 grid-template-columns:1fr;
             }
         }
+
+        @media(max-width:600px){
+
+            main{
+                width:90%;
+                padding-top:40px;
+            }
+
+            h1{
+                font-size:34px;
+            }
+
+            .genero{
+                min-height:220px;
+                padding:25px;
+            }
+
+            .genero h2{
+                font-size:26px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <nav>
-        <div class="logo">GAMEZONE</div>
+
+        <div class="logo">
+            GAME<span>ZONE</span>
+        </div>
 
         <div class="menu">
             <a href="index.html">Inicio</a>
@@ -207,12 +270,19 @@
         </div>
 
         <div class="cuenta">
-            <a href="login.html" class="login">Iniciar sesión</a>
-            <a href="#" class="registro">Registrarse</a>
+            <a href="login.html" class="login">
+                Iniciar sesión
+            </a>
+
+            <a href="login.html" class="registro">
+                Registrarse
+            </a>
         </div>
+
     </nav>
 
     <main>
+
         <h1>Géneros</h1>
 
         <p class="descripcion">
@@ -221,51 +291,83 @@
 
         <div class="generos">
 
+            <!-- ACCIÓN -->
+
             <div class="genero violeta">
+
                 <div>
                     <h2>Acción</h2>
+
                     <p>
                         Juegos llenos de combates, desafíos y momentos de mucha intensidad.
                     </p>
                 </div>
 
-                <a href="juegos.html">Explorar juegos →</a>
+                <a href="juegos.html">
+                    Explorar juegos →
+                </a>
+
             </div>
 
+
+            <!-- RPG -->
+
             <div class="genero rosa">
+
                 <div>
                     <h2>RPG</h2>
+
                     <p>
                         Aventuras donde puedes desarrollar personajes y descubrir grandes historias.
                     </p>
                 </div>
 
-                <a href="juegos.html">Explorar juegos →</a>
+                <a href="juegos.html">
+                    Explorar juegos →
+                </a>
+
             </div>
 
-            <div class="genero naranja">
+
+            <!-- AVENTURA -->
+
+            <div class="genero cian">
+
                 <div>
                     <h2>Aventura</h2>
+
                     <p>
                         Explora mundos, supera desafíos y vive diferentes experiencias.
                     </p>
                 </div>
 
-                <a href="juegos.html">Explorar juegos →</a>
+                <a href="juegos.html">
+                    Explorar juegos →
+                </a>
+
             </div>
 
-            <div class="genero azul">
+
+            <!-- SUPERVIVENCIA -->
+
+            <div class="genero azul-noche">
+
                 <div>
                     <h2>Supervivencia</h2>
+
                     <p>
                         Recolecta recursos, construye y sobrevive en diferentes escenarios.
                     </p>
                 </div>
 
-                <a href="juegos.html">Explorar juegos →</a>
+                <a href="juegos.html">
+                    Explorar juegos →
+                </a>
+
             </div>
 
         </div>
+
     </main>
 
 </body>

@@ -6,16 +6,19 @@
 <title>GAMEZONE - Juegos</title>
 
 <style>
+
 :root{
-    --fondo:#F0EEF7;
-    --navbar:#D9D3EA;
-    --tarjeta:#FAF8FF;
-    --texto:#191625;
-    --secundario:#625B72;
-    --violeta:#7057E8;
-    --rosa:#E9578F;
-    --naranja:#F4A340;
-    --azul:#4F8FE8;
+    --fondo:#0F172A;
+    --navbar:#111827;
+    --tarjeta:#1E293B;
+    --texto:#F8FAFC;
+    --secundario:#94A3B8;
+
+    --violeta:#7C3AED;
+    --cyan:#06B6D4;
+    --rosa:#EC4899;
+
+    --borde:#334155;
 }
 
 *{
@@ -30,12 +33,18 @@ body{
     color:var(--texto);
 }
 
+/* =========================
+   NAVBAR
+========================= */
+
 nav{
     height:75px;
     background:var(--navbar);
+
     display:grid;
     grid-template-columns:1fr auto 1fr;
     align-items:center;
+
     padding:0 7%;
 }
 
@@ -59,15 +68,20 @@ nav{
 
 .menu a{
     position:relative;
+
     text-decoration:none;
-    color:var(--secundario);
+    color:#CBD5E1;
+
     font-size:15px;
     font-weight:700;
+
     padding:12px 18px;
+
+    transition:.2s;
 }
 
 .menu a:hover{
-    color:var(--violeta);
+    color:var(--cyan);
 }
 
 .menu a.activo{
@@ -76,12 +90,17 @@ nav{
 
 .menu a.activo::after{
     content:"";
+
     position:absolute;
+
     left:18px;
     right:18px;
     bottom:3px;
+
     height:3px;
+
     background:var(--violeta);
+
     border-radius:5px;
 }
 
@@ -89,11 +108,13 @@ nav{
     display:flex;
     align-items:center;
     justify-content:flex-end;
+
     gap:12px;
 }
 
 .cuenta a{
     text-decoration:none;
+
     font-size:14px;
     font-weight:700;
 }
@@ -102,16 +123,33 @@ nav{
     color:var(--texto);
 }
 
+.login:hover{
+    color:var(--cyan);
+}
+
 .registro{
     background:var(--violeta);
     color:white;
+
     padding:10px 17px;
+
     border-radius:8px;
+
+    transition:.2s;
 }
+
+.registro:hover{
+    background:var(--rosa);
+}
+
+/* =========================
+   CONTENIDO
+========================= */
 
 main{
     width:86%;
     max-width:1250px;
+
     margin:auto;
 }
 
@@ -121,73 +159,121 @@ main{
 
 .encabezado span{
     color:var(--violeta);
+
     font-size:13px;
     font-weight:800;
 }
 
 .encabezado h1{
     font-size:42px;
+
     margin:12px 0;
+
+    color:var(--texto);
 }
 
 .encabezado p{
     color:var(--secundario);
+
     font-size:16px;
 }
 
+/* =========================
+   FILTROS
+========================= */
+
 .filtros{
     display:flex;
+
     gap:10px;
+
     flex-wrap:wrap;
+
     margin-bottom:30px;
 }
 
 .filtro{
     border:none;
-    background:white;
+
+    background:var(--tarjeta);
+
     color:var(--secundario);
+
     padding:10px 18px;
+
     border-radius:8px;
+
     cursor:pointer;
+
     font-weight:700;
-    border:1px solid #ddd8e8;
+
+    border:1px solid var(--borde);
+
+    transition:.2s;
 }
 
 .filtro:hover{
-    color:var(--violeta);
+    color:var(--cyan);
+
+    border-color:var(--cyan);
 }
 
 .filtro.activo{
     background:var(--violeta);
+
     color:white;
+
     border-color:var(--violeta);
 }
 
+/* =========================
+   GRID
+========================= */
+
 .grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:22px;
+
     padding-bottom:60px;
 }
 
+/* =========================
+   TARJETAS
+========================= */
+
 .card{
     background:var(--tarjeta);
+
     border-radius:15px;
+
     overflow:hidden;
-    border:1px solid #ddd8e8;
+
+    border:1px solid var(--borde);
+
     transition:.2s;
 }
 
 .card:hover{
     transform:translateY(-4px);
+
+    border-color:var(--violeta);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .imagen{
     height:180px;
+
     background-size:cover;
+
     background-repeat:no-repeat;
+
     background-position:center;
-    background-color:#191625;
+
+    background-color:var(--navbar);
 }
 
 .imagen.cyberpunk{
@@ -204,63 +290,111 @@ main{
 
 .card-info h3{
     font-size:18px;
+
     margin-bottom:7px;
+
+    color:var(--texto);
 }
 
 .card-info p{
     color:var(--secundario);
+
     font-size:14px;
+
     margin-bottom:12px;
 }
 
 .ver{
     display:inline-block;
+
     text-decoration:none;
+
     color:var(--violeta);
+
     font-weight:800;
+
     font-size:13px;
+
+    transition:.2s;
 }
+
+.ver:hover{
+    color:var(--cyan);
+}
+
+/* =========================
+   ETIQUETAS
+========================= */
 
 .etiqueta-juego{
     display:inline-block;
+
     padding:6px 9px;
+
     border-radius:6px;
+
     font-size:11px;
+
     font-weight:800;
+
     margin-bottom:12px;
 }
 
+/* VIOLETA */
+
 .violeta{
-    background:#e5defd;
-    color:var(--violeta);
+    background:#2E1065;
+
+    color:#A78BFA;
 }
+
+/* ROSA */
 
 .rosa{
-    background:#fbdce8;
-    color:var(--rosa);
+    background:#500724;
+
+    color:#F9A8D4;
 }
 
-.naranja{
-    background:#ffebcd;
-    color:#c77a10;
+/* CIAN */
+
+.cian{
+    background:#083344;
+
+    color:#67E8F9;
 }
+
+/* AZUL NOCHE */
 
 .azul{
-    background:#dceafd;
-    color:#3775ca;
+    background:#111827;
+
+    color:#CBD5E1;
+
+    border:1px solid #334155;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media(max-width:1000px){
+
     .grid{
         grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 @media(max-width:700px){
+
     nav{
         grid-template-columns:1fr;
+
         height:auto;
+
         gap:10px;
+
         padding:18px;
     }
 
@@ -280,111 +414,339 @@ main{
     .encabezado h1{
         font-size:34px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <nav>
-    <div class="logo">GAME<span>ZONE</span></div>
+
+    <div class="logo">
+        GAME<span>ZONE</span>
+    </div>
 
     <div class="menu">
-        <a href="index.html">Inicio</a>
-        <a href="juegos.html" class="activo">Juegos</a>
-        <a href="generos.html">Géneros</a>
-        <a href="noticias.html">Noticias</a>
+
+        <a href="index.html">
+            Inicio
+        </a>
+
+        <a href="juegos.html" class="activo">
+            Juegos
+        </a>
+
+        <a href="generos.html">
+            Géneros
+        </a>
+
+        <a href="noticias.html">
+            Noticias
+        </a>
+
     </div>
 
     <div class="cuenta">
-        <a href="login.html" class="login">Iniciar sesión</a>
-        <a href="login.html" class="registro">Registrarse</a>
+
+        <a href="login.html" class="login">
+            Iniciar sesión
+        </a>
+
+        <a href="login.html" class="registro">
+            Registrarse
+        </a>
+
     </div>
+
 </nav>
 
 <main>
 
 <section class="encabezado">
-    <span>CATÁLOGO GAMING</span>
-    <h1>EXPLORA NUESTROS JUEGOS</h1>
-    <p>Encuentra juegos de diferentes géneros y descubre nuevas aventuras.</p>
+
+    <span>
+        CATÁLOGO GAMING
+    </span>
+
+    <h1>
+        EXPLORA NUESTROS JUEGOS
+    </h1>
+
+    <p>
+        Encuentra juegos de diferentes géneros y descubre nuevas aventuras.
+    </p>
+
 </section>
 
 <div class="filtros">
-    <button class="filtro activo" onclick="filtrar('todos',this)">Todos</button>
-    <button class="filtro" onclick="filtrar('accion',this)">Acción</button>
-    <button class="filtro" onclick="filtrar('rpg',this)">RPG</button>
-    <button class="filtro" onclick="filtrar('aventura',this)">Aventura</button>
-    <button class="filtro" onclick="filtrar('supervivencia',this)">Supervivencia</button>
-    <button class="filtro" onclick="filtrar('deportes',this)">Deportes</button>
+
+    <button
+        class="filtro activo"
+        onclick="filtrar('todos',this)">
+        Todos
+    </button>
+
+    <button
+        class="filtro"
+        onclick="filtrar('accion',this)">
+        Acción
+    </button>
+
+    <button
+        class="filtro"
+        onclick="filtrar('rpg',this)">
+        RPG
+    </button>
+
+    <button
+        class="filtro"
+        onclick="filtrar('aventura',this)">
+        Aventura
+    </button>
+
+    <button
+        class="filtro"
+        onclick="filtrar('supervivencia',this)">
+        Supervivencia
+    </button>
+
+    <button
+        class="filtro"
+        onclick="filtrar('deportes',this)">
+        Deportes
+    </button>
+
 </div>
 
 <section class="grid">
 
-    <div class="card juego" data-genero="rpg accion aventura">
-        <div class="imagen cyberpunk" style="background-image:url('img/cyberpunk.jpg')"></div>
-        <div class="card-info">
-            <h3>Cyberpunk 2077</h3>
-            <p>RPG · Acción · Mundo abierto</p>
-            <span class="etiqueta-juego violeta">RPG</span>
-            <br>
-            <a href="detalle.html?juego=cyberpunk" class="ver">Ver juego →</a>
+    <!-- CYBERPUNK -->
+
+    <div
+        class="card juego"
+        data-genero="rpg accion aventura">
+
+        <div
+            class="imagen cyberpunk"
+            style="background-image:url('img/cyberpunk.jpg')">
         </div>
+
+        <div class="card-info">
+
+            <h3>
+                Cyberpunk 2077
+            </h3>
+
+            <p>
+                RPG · Acción · Mundo abierto
+            </p>
+
+            <span class="etiqueta-juego violeta">
+                RPG
+            </span>
+
+            <br>
+
+            <a
+                href="detalle.html?juego=cyberpunk"
+                class="ver">
+                Ver juego →
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="card juego" data-genero="rpg accion aventura">
-        <div class="imagen eldenring" style="background-image:url('img/eldenring.jpg')"></div>
-        <div class="card-info">
-            <h3>Elden Ring</h3>
-            <p>RPG · Acción · Aventura</p>
-            <span class="etiqueta-juego rosa">ACCIÓN</span>
-            <br>
-            <a href="detalle.html?juego=eldenring" class="ver">Ver juego →</a>
+
+    <!-- ELDEN RING -->
+
+    <div
+        class="card juego"
+        data-genero="rpg accion aventura">
+
+        <div
+            class="imagen eldenring"
+            style="background-image:url('img/eldenring.jpg')">
         </div>
+
+        <div class="card-info">
+
+            <h3>
+                Elden Ring
+            </h3>
+
+            <p>
+                RPG · Acción · Aventura
+            </p>
+
+            <span class="etiqueta-juego rosa">
+                ACCIÓN
+            </span>
+
+            <br>
+
+            <a
+                href="detalle.html?juego=eldenring"
+                class="ver">
+                Ver juego →
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="card juego" data-genero="supervivencia aventura">
-        <div class="imagen" style="background-image:url('img/minecraft.jpg')"></div>
-        <div class="card-info">
-            <h3>Minecraft</h3>
-            <p>Supervivencia · Aventura</p>
-            <span class="etiqueta-juego naranja">SUPERVIVENCIA</span>
-            <br>
-            <a href="detalle.html?juego=minecraft" class="ver">Ver juego →</a>
+
+    <!-- MINECRAFT -->
+
+    <div
+        class="card juego"
+        data-genero="supervivencia aventura">
+
+        <div
+            class="imagen"
+            style="background-image:url('img/minecraft.jpg')">
         </div>
+
+        <div class="card-info">
+
+            <h3>
+                Minecraft
+            </h3>
+
+            <p>
+                Supervivencia · Aventura
+            </p>
+
+            <span class="etiqueta-juego cian">
+                SUPERVIVENCIA
+            </span>
+
+            <br>
+
+            <a
+                href="detalle.html?juego=minecraft"
+                class="ver">
+                Ver juego →
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="card juego" data-genero="accion">
-        <div class="imagen" style="background-image:url('img/valorant.jpg')"></div>
-        <div class="card-info">
-            <h3>Valorant</h3>
-            <p>Acción · Shooter</p>
-            <span class="etiqueta-juego azul">ACCIÓN</span>
-            <br>
-            <a href="detalle.html?juego=valorant" class="ver">Ver juego →</a>
+
+    <!-- VALORANT -->
+
+    <div
+        class="card juego"
+        data-genero="accion">
+
+        <div
+            class="imagen"
+            style="background-image:url('img/valorant.jpg')">
         </div>
+
+        <div class="card-info">
+
+            <h3>
+                Valorant
+            </h3>
+
+            <p>
+                Acción · Shooter
+            </p>
+
+            <span class="etiqueta-juego azul">
+                ACCIÓN
+            </span>
+
+            <br>
+
+            <a
+                href="detalle.html?juego=valorant"
+                class="ver">
+                Ver juego →
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="card juego" data-genero="accion aventura">
-        <div class="imagen" style="background-image:url('img/godofwar.jpg')"></div>
-        <div class="card-info">
-            <h3>God of War Ragnarök</h3>
-            <p>Acción · Aventura</p>
-            <span class="etiqueta-juego rosa">AVENTURA</span>
-            <br>
-            <a href="detalle.html?juego=godofwar" class="ver">Ver juego →</a>
+
+    <!-- GOD OF WAR -->
+
+    <div
+        class="card juego"
+        data-genero="accion aventura">
+
+        <div
+            class="imagen"
+            style="background-image:url('img/godofwar.jpg')">
         </div>
+
+        <div class="card-info">
+
+            <h3>
+                God of War Ragnarök
+            </h3>
+
+            <p>
+                Acción · Aventura
+            </p>
+
+            <span class="etiqueta-juego rosa">
+                AVENTURA
+            </span>
+
+            <br>
+
+            <a
+                href="detalle.html?juego=godofwar"
+                class="ver">
+                Ver juego →
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="card juego" data-genero="accion aventura">
-        <div class="imagen" style="background-image:url('img/thelastofus.jpg')"></div>
-        <div class="card-info">
-            <h3>The Last of Us Part II</h3>
-            <p>Acción · Aventura</p>
-            <span class="etiqueta-juego violeta">AVENTURA</span>
-            <br>
-            <a href="detalle.html?juego=thelastofus" class="ver">Ver juego →</a>
+
+    <!-- THE LAST OF US -->
+
+    <div
+        class="card juego"
+        data-genero="accion aventura">
+
+        <div
+            class="imagen"
+            style="background-image:url('img/thelastofus.jpg')">
         </div>
+
+        <div class="card-info">
+
+            <h3>
+                The Last of Us Part II
+            </h3>
+
+            <p>
+                Acción · Aventura
+            </p>
+
+            <span class="etiqueta-juego violeta">
+                AVENTURA
+            </span>
+
+            <br>
+
+            <a
+                href="detalle.html?juego=thelastofus"
+                class="ver">
+                Ver juego →
+            </a>
+
+        </div>
+
     </div>
 
 </section>
@@ -392,9 +754,13 @@ main{
 </main>
 
 <script>
+
 function filtrar(categoria,boton){
+
     document.querySelectorAll(".filtro").forEach(function(b){
+
         b.classList.remove("activo");
+
     });
 
     boton.classList.add("activo");
@@ -402,17 +768,27 @@ function filtrar(categoria,boton){
     document.querySelectorAll(".juego").forEach(function(juego){
 
         if(categoria==="todos"){
+
             juego.style.display="";
+
         }
+
         else if(juego.dataset.genero.includes(categoria)){
+
             juego.style.display="";
+
         }
+
         else{
+
             juego.style.display="none";
+
         }
 
     });
+
 }
+
 </script>
 
 </body>
